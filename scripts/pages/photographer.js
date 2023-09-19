@@ -82,7 +82,7 @@ const displayMedia = async (sortBy) => {
   const data = await getData();
   if (data) {
     const hisMedia = data.hisMedia;
-
+    console.log(hisMedia);
     const sortingFunction = (a, b) => {
       if (sortBy === "popularite") {
         return b.likes - a.likes;
@@ -98,18 +98,36 @@ const displayMedia = async (sortBy) => {
 
     let rowHTML = "";
     hisMedia.forEach((media, index) => {
-      const picture = `./assets/media/${media.image}`;
-      rowHTML += `
-      <div class="card">
-      <div class="card-picture">
-        <img src="${picture}" alt="" class="media-picture"/>
-      </div>
-      <div class="card-info">
-        <p class="card-p">${media.title}</p>
-        <span class="card-s">${media.likes}<i class="fa-solid fa-heart"></i></span>
-      </div>
-    </div>
+      let mediaElement;
+
+      if (media.image) {
+        const picture = `./assets/media/${media.image}`;
+        mediaElement = `
+            <div class="card-picture">
+              <img src="${picture}" alt="" class="media-picture"/>
+            </div>
           `;
+      } else if (media.video) {
+        const videoSource = `./assets/media/${media.video}`;
+        mediaElement = `
+            <div class="card-picture">
+              <video class="video" controls >
+                <source src="${videoSource}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          `;
+      }
+
+      rowHTML += `
+          <div class="card">
+            ${mediaElement}
+            <div class="card-info">
+              <p class="card-p">${media.title}</p>
+              <span class="card-s">${media.likes}<i class="fa-solid fa-heart"></i></span>
+            </div>
+          </div>
+        `;
 
       if ((index + 1) % 3 === 0 || index === hisMedia.length - 1) {
         cardsContainer.innerHTML += `<div class="row">${rowHTML}</div>`;
@@ -119,6 +137,8 @@ const displayMedia = async (sortBy) => {
   }
 };
 
+// Initial call to displayMedia with the default sorting criteria ('popularite')
 displayMedia("popularite");
+
 displayPhotograph();
 DOM();
