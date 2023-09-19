@@ -70,32 +70,55 @@ const displayPhotograph = async () => {
   }
 };
 
-const displayMedia = async () => {
+document.getElementById("sortBy").addEventListener("change", function () {
+  const selectedValue = this.value;
+  const cardsContainer = document.querySelector(".cards-container");
+  cardsContainer.innerHTML = "";
+  displayMedia(selectedValue);
+});
+
+const displayMedia = async (sortBy) => {
   const cardsContainer = document.querySelector(".cards-container");
   const data = await getData();
   if (data) {
     const hisMedia = data.hisMedia;
+
+    const sortingFunction = (a, b) => {
+      if (sortBy === "popularite") {
+        return b.likes - a.likes;
+      } else if (sortBy === "date") {
+        return b.date.localeCompare(a.date);
+      } else if (sortBy === "titre") {
+        return a.title.localeCompare(b.title);
+      }
+      return 0;
+    };
+
+    hisMedia.sort(sortingFunction);
+
     let rowHTML = "";
     hisMedia.forEach((media, index) => {
       const picture = `./assets/media/${media.image}`;
       rowHTML += `
-          <div class="card">
-            <div class="card-picture">
-              <img src="${picture}" alt="" class="media-picture"/>
-            </div>
-          </div>
-        `;
+      <div class="card">
+      <div class="card-picture">
+        <img src="${picture}" alt="" class="media-picture"/>
+      </div>
+      <div class="card-info">
+        <p class="card-p">${media.title}</p>
+        <span class="card-s">${media.likes}<i class="fa-solid fa-heart"></i></span>
+      </div>
+    </div>
+          `;
 
-      // Check if we've added 3 pictures to the current row or if it's the last item
       if ((index + 1) % 3 === 0 || index === hisMedia.length - 1) {
-        // Wrap the row in a container and append it to cardsContainer
         cardsContainer.innerHTML += `<div class="row">${rowHTML}</div>`;
-        rowHTML = ""; // Reset the rowHTML for the next row
+        rowHTML = "";
       }
     });
   }
 };
 
-displayMedia();
+displayMedia("popularite");
 displayPhotograph();
 DOM();
