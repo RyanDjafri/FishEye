@@ -18,7 +18,7 @@ async function init() {
 }
 
 init();
-
+/*
 function DOM() {
   const logoBtn = document.querySelector(".logo");
   const linkBtn = document.querySelector(".link");
@@ -30,3 +30,4 @@ function DOM() {
   });
 }
 DOM();
+*/

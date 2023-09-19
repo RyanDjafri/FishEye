@@ -74,3 +74,98 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+
+.photograph-header {
+    display:flex;
+    justify-content: space-between;
+    align-items:center
+}
+
+.photograph-name {
+    color: #D3573C;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.photograph-location {
+    color: #901C1C;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.photograph-tagline {
+    color: #525252;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.photograph-picture {
+    height: 200px;
+    width: 200px;
+    border-radius:100%;
+}
+
+.filters {
+    margin: 20px 100px;
+}
+
+.filter {
+color: #000;
+font-family: DM Sans;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+#sortBy {
+border-radius: 5px;
+background: #901C1C;
+}
+
+
+#sortBy option {
+color: #FFF;
+font-family: DM Sans;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 100px; 
+  }
+  
+  
+  .card {
+    flex-basis: calc(33.33% - 10px); 
+    box-sizing: border-box;
+    overflow: hidden; 
+    margin-right: 10px; 
+    background-color: #fff; 
+    transition: transform 0.2s ease-in-out; 
+  }
+  
+  .card:hover {
+    transform: scale(1.05); 
+  }
+  
+ 
+  .card-picture img {
+    width: 350px;
+    height: 300px;
+    flex-shrink: 0;
+    border-radius:5px;
+    background: lightgray 50% / cover no-repeat, #C4C4C4;
+  }
