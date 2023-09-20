@@ -6,6 +6,8 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script type="module" defer src="./scripts/pages/photographer.js"></script>
+    <script type="module" defer src="./scripts/utils/contactForm.js"></script>
     <title>Fisheye - photographe </title>
   </head>
   <body>
@@ -27,11 +29,74 @@
     <div id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
+          <h2 class="contact-me" onclick="displayModal()" >Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-     
-    <script type="module" src="/scripts/pages/photographer.js"></script>
-    <script type="module" src="/scripts/utils/contactForm.js"></script>
+        <div class="bground">
+          <div class="content">
+            <span class="close"></span>
+            <div class="modal-body">
+              <form
+              name="reserve"
+              action="index.html"
+              method="get"
+              onsubmit="return validate();"
+            >
+              <div class="formData">
+                <label for="first">Prénom</label><br>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="first"
+                  name="first"
+                  minlength="2"
+                /><br>
+                <div id="firstNameError" class="error"></div> <!-- Error element -->
+              </div>
+              <div class="formData">
+                <label for="last">Nom</label><br>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="last"
+                  name="last"
+                /><br>
+                <div id="lastNameError" class="error"></div> <!-- Error element -->
+              </div>
+              <div class="formData">
+                <label for="email">E-mail</label><br>
+                <input
+                  class="text-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                /><br>
+                <div id="emailError" class="error"></div> <!-- Error element -->
+              </div>
+              <div class="formData">
+                <label for="message">Date de naissance</label><br>
+               <textarea name="" id="message" cols="30" rows="10"></textarea>
+               <br>
+                <div id="messageError" class="error"></div> <!-- Error element -->
+              </div>
+              <input
+                class="contact-button"
+                type="submit"
+                class="button"
+                value="Envoyer"
+              />
+            </form>
+          </div>
+          <div class="success-container hidden">
+            <div class="success-message">
+              <p id="success-message-text">Merci pour  <br>  votre inscription</p>
+            </div>
+            <div class="success-button">
+              <button class="btn-submit btn-close">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
   </body>
 </html>

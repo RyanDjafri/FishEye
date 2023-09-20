@@ -118,7 +118,6 @@ const displayMedia = async (sortBy) => {
             </div>
           `;
       }
-
       rowHTML += `
           <div class="card">
             ${mediaElement}
@@ -137,8 +136,6 @@ const displayMedia = async (sortBy) => {
   }
 };
 
-// Initial call to displayMedia with the default sorting criteria ('popularite')
 displayMedia("popularite");
-
 displayPhotograph();
 DOM();
