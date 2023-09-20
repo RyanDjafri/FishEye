@@ -59,7 +59,7 @@ const displayPhotograph = async () => {
         <p class="photograph-tagline">${photograph.tagline}</p>
     </div>
     <div class="photograph-contact">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button">Contactez-moi</button>
     </div>
     <div class="photograph-pic">
         <img src="${picture}" alt="photograph-pic" class="photograph-picture" />
