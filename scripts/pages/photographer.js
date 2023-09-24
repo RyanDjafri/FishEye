@@ -49,24 +49,17 @@ const displayPhotograph = async () => {
       /[\s-]+/g,
       ""
     )}.jpg`;
-    main.innerHTML = `
-  <div class="photograph-header">
-    <div class="photograph-info">
-        <h1 class="photograph-name">${photograph.name}</h1>
-        <h4 class="photograph-location">${
-          photograph.city + ", " + photograph.country
-        }</h4>
-        <p class="photograph-tagline">${photograph.tagline}</p>
-    </div>
-    <div class="photograph-contact">
-        <button class="contact_button">Contactez-moi</button>
-    </div>
-    <div class="photograph-pic">
-        <img src="${picture}" alt="photograph-pic" class="photograph-picture" />
-    </div>
-      </div>
-  
-  `;
+    const nameElement = document.querySelector(".photograph-name");
+    nameElement.textContent = photograph.name;
+
+    const taglineElement = document.querySelector(".photograph-tagline");
+    taglineElement.textContent = photograph.tagline;
+
+    const locationElement = document.querySelector(".photograph-location");
+    locationElement.textContent = `${photograph.city}, ${photograph.country}`;
+
+    const pictureElement = document.querySelector(".photograph-picture");
+    pictureElement.src = picture;
   }
 };
 
@@ -104,16 +97,15 @@ const displayMedia = async (sortBy) => {
         const picture = `./assets/media/${media.image}`;
         mediaElement = `
             <div class="card-picture">
-              <img src="${picture}" alt="" class="media-picture"/>
+              <img src="${picture}" alt="${picture}" class="media-picture"/>
             </div>
           `;
       } else if (media.video) {
         const videoSource = `./assets/media/${media.video}`;
         mediaElement = `
             <div class="card-picture">
-              <video class="video" controls >
+              <video class="video">
                 <source src="${videoSource}" type="video/mp4">
-                Your browser does not support the video tag.
               </video>
             </div>
           `;
@@ -136,6 +128,6 @@ const displayMedia = async (sortBy) => {
   }
 };
 
+DOM();
 displayMedia("popularite");
 displayPhotograph();
-DOM();
