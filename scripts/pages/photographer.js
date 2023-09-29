@@ -38,6 +38,7 @@ const getData = async () => {
     return null; // Return null in case of an error
   }
 };
+const photographerImages = await getData();
 
 const displayPhotograph = async () => {
   const data = await getData();
@@ -60,6 +61,8 @@ const displayPhotograph = async () => {
 
     const pictureElement = document.querySelector(".photograph-picture");
     pictureElement.src = picture;
+    const modalElement = document.querySelector(".modal-name");
+    modalElement.textContent = photograph.name;
   }
 };
 
@@ -128,6 +131,25 @@ const displayMedia = async (sortBy) => {
   }
 };
 
+const carouselModal = document.querySelector(".carousel");
+const img = carouselModal.querySelector("img");
+const displayCarousel = async () => {
+  carouselModal.showModal();
+  img.src = clickedSrc;
+};
+
 DOM();
 displayMedia("popularite");
 displayPhotograph();
+
+let clickedSrc = "";
+const postsContainer = document.querySelector(".cards-container");
+postsContainer.addEventListener("click", (e) => {
+  const clickedElement = e.target;
+  const hasNotClickedAnImage = clickedElement.tagName !== "IMG";
+  if (hasNotClickedAnImage) {
+    return;
+  }
+  clickedSrc = clickedElement.src.split("5500/")[1];
+  displayCarousel();
+});

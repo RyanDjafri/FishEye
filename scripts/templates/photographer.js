@@ -19,7 +19,7 @@ export function photographerTemplate(data) {
     p2.textContent = price + "€/jour";
 
     img.setAttribute("src", picture);
-    img.setAttribute("alt", portrait);
+    img.setAttribute("alt", `picture of ${name}`);
     article.appendChild(img);
     article.appendChild(h2);
     article.appendChild(h4);
