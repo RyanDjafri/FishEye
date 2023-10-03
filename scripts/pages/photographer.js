@@ -38,7 +38,6 @@ const getData = async () => {
     return null; // Return null in case of an error
   }
 };
-const photographerImages = await getData();
 
 const displayPhotograph = async () => {
   const data = await getData();
@@ -97,7 +96,7 @@ const displayMedia = async (sortBy) => {
       let mediaElement;
 
       if (media.image) {
-        const picture = `./assets/media/${media.image}`;
+        const picture = `assets/media/${media.image}`;
         mediaElement = `
             <div class="card-picture">
               <img src="${picture}" alt="${picture}" class="media-picture"/>
@@ -131,18 +130,26 @@ const displayMedia = async (sortBy) => {
   }
 };
 
-const carouselModal = document.querySelector(".carousel");
-const img = carouselModal.querySelector("img");
-const displayCarousel = async () => {
-  carouselModal.showModal();
-  img.src = clickedSrc;
-};
-
 DOM();
 displayMedia("popularite");
 displayPhotograph();
 
+const photographer = await getData();
+const photographerImages = photographer.hisMedia;
+const carouselModal = document.querySelector(".carousel");
+const img = carouselModal.querySelector("img");
+const prev = document.querySelector(".previous");
+const next = document.querySelector(".next");
+
 let clickedSrc = "";
+let imageIndex = 0;
+
+const displayCarousel = async () => {
+  carouselModal.showModal();
+  img.src = photographerImages[imageIndex]?.src || "";
+  console.log(img.src);
+};
+
 const postsContainer = document.querySelector(".cards-container");
 postsContainer.addEventListener("click", (e) => {
   const clickedElement = e.target;
@@ -150,6 +157,30 @@ postsContainer.addEventListener("click", (e) => {
   if (hasNotClickedAnImage) {
     return;
   }
-  clickedSrc = clickedElement.src.split("5500/")[1];
+  clickedSrc = clickedElement.src;
+  imageIndex = photographerImages.findIndex(
+    (image) => image.src === clickedSrc
+  );
   displayCarousel();
 });
+
+const showPreviousImage = () => {
+  if (imageIndex > 0) {
+    imageIndex--;
+  } else {
+    imageIndex = photographerImages.length - 1;
+  }
+  displayCarousel();
+};
+
+const showNextImage = () => {
+  if (imageIndex < photographerImages.length - 1) {
+    imageIndex++;
+  } else {
+    imageIndex = 0;
+  }
+  displayCarousel();
+};
+
+prev.addEventListener("click", showPreviousImage);
+next.addEventListener("click", showNextImage);
