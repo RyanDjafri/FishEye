@@ -107,7 +107,7 @@ const displayMedia = async (sortBy) => {
         mediaElement = `
             <div class="card-picture">
               <video class="video">
-                <source src="${videoSource}" type="video/mp4">
+                <source src="${videoSource}" type="video/mp4" >
               </video>
             </div>
           `;
@@ -138,49 +138,61 @@ const photographer = await getData();
 const photographerImages = photographer.hisMedia;
 const carouselModal = document.querySelector(".carousel");
 const img = carouselModal.querySelector("img");
+const video = carouselModal.querySelector("video");
 const prev = document.querySelector(".previous");
 const next = document.querySelector(".next");
-
-let clickedSrc = "";
 let imageIndex = 0;
 
-const displayCarousel = async () => {
-  carouselModal.showModal();
-  img.src = photographerImages[imageIndex]?.src || "";
-  console.log(img.src);
+const cardsContainer = document.querySelector(".cards-container");
+const cards = cardsContainer.querySelectorAll(".card");
+
+function getSource() {
+  cards.forEach((card, index) => {
+    const cardPicture = card.querySelector(".card-picture img");
+    const cardVideo = card.querySelector(".card-picture video source");
+    card.addEventListener("click", () => {
+      carouselModal.showModal();
+      imageIndex = index;
+      updateMedia();
+    });
+  });
+}
+getSource();
+
+const updateMedia = () => {
+  const card = cards[imageIndex];
+  const cardPicture = card.querySelector(".card-picture img");
+  const cardVideo = card.querySelector(".card-picture video source");
+
+  if (cardPicture) {
+    img.src = cardPicture.src;
+    img.style.display = "inline";
+    video.style.display = "none"; // Hide the video element
+  } else if (cardVideo) {
+    video.src = cardVideo.src;
+    video.load();
+    video.play();
+
+    // Hide the img element when it's a video
+    img.style.display = "none";
+    video.style.display = "inline"; // Display the video element
+  }
 };
 
-const postsContainer = document.querySelector(".cards-container");
-postsContainer.addEventListener("click", (e) => {
-  const clickedElement = e.target;
-  const hasNotClickedAnImage = clickedElement.tagName !== "IMG";
-  if (hasNotClickedAnImage) {
-    return;
-  }
-  clickedSrc = clickedElement.src;
-  imageIndex = photographerImages.findIndex(
-    (image) => image.src === clickedSrc
-  );
-  displayCarousel();
-});
-
-const showPreviousImage = () => {
+prev.addEventListener("click", () => {
   if (imageIndex > 0) {
     imageIndex--;
   } else {
-    imageIndex = photographerImages.length - 1;
+    imageIndex = cards.length - 1;
   }
-  displayCarousel();
-};
+  updateMedia();
+});
 
-const showNextImage = () => {
-  if (imageIndex < photographerImages.length - 1) {
+next.addEventListener("click", () => {
+  if (imageIndex < cards.length - 1) {
     imageIndex++;
   } else {
     imageIndex = 0;
   }
-  displayCarousel();
-};
-
-prev.addEventListener("click", showPreviousImage);
-next.addEventListener("click", showNextImage);
+  updateMedia();
+});

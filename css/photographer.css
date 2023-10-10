@@ -215,8 +215,6 @@ line-height: normal;
     line-height: normal;
 }
 
-
-
 .card-info {
     width:350px;
     display:flex;
@@ -224,7 +222,7 @@ line-height: normal;
     justify-content: space-between;
 }
 
-.image-opened {
+.image-opened, .video-opened{
     width:400px;
     height:400px;
 }
