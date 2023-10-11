@@ -34,6 +34,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    border:none;
 }
 .modal {
     background: #DB8876;
@@ -226,4 +227,46 @@ line-height: normal;
     width:400px;
     height:400px;
 }
-  
+.next, .previous, .close {
+    background:none;
+    border:none;
+    width: 48px;
+    height: 29.64px;
+    color:#901C1C;
+}
+
+.carousel {
+    width: 1253px;
+    height: 984px;
+}
+
+.image-opened {
+    width: 1050px;
+    height: 900px;
+    border-radius: 5px;
+    background: lightgray -5.597px -178.321px / 100% 155.796% no-repeat, #C4C4C4;
+}
+
+.infos {
+    position:fixed;
+    width: 376px;
+    height: 89px;
+    border-radius: 5px;
+    background: #DB8876;
+    bottom:0;
+    right:5%;
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+}
+
+.likes, .price-p {
+    display:flex;
+    color: #000;
+    font-family: DM Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+

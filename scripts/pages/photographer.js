@@ -134,13 +134,12 @@ DOM();
 displayMedia("popularite");
 displayPhotograph();
 
-const photographer = await getData();
-const photographerImages = photographer.hisMedia;
 const carouselModal = document.querySelector(".carousel");
 const img = carouselModal.querySelector("img");
 const video = carouselModal.querySelector("video");
 const prev = document.querySelector(".previous");
 const next = document.querySelector(".next");
+const close = document.querySelector(".close");
 let imageIndex = 0;
 
 const cardsContainer = document.querySelector(".cards-container");
@@ -167,15 +166,13 @@ const updateMedia = () => {
   if (cardPicture) {
     img.src = cardPicture.src;
     img.style.display = "inline";
-    video.style.display = "none"; // Hide the video element
+    video.style.display = "none";
   } else if (cardVideo) {
     video.src = cardVideo.src;
     video.load();
     video.play();
-
-    // Hide the img element when it's a video
     img.style.display = "none";
-    video.style.display = "inline"; // Display the video element
+    video.style.display = "inline";
   }
 };
 
@@ -196,3 +193,27 @@ next.addEventListener("click", () => {
   }
   updateMedia();
 });
+
+close.addEventListener("click", () => {
+  carouselModal.close();
+});
+
+async function getLikesPrice() {
+  const likesContainer = document.querySelector(".likes");
+  const priceContainer = document.querySelector(".price");
+  const photographer = await getData();
+  const media = photographer.hisMedia;
+  const likes = media
+    .map((media) => media.likes)
+    .reduce((totalLikes, likes) => totalLikes + likes, 0);
+
+  likesContainer.innerHTML = `
+  <p>${likes}</p>
+  <img src="../../assets/icons/like.svg" alt="like-icon" />
+  `;
+  priceContainer.innerHTML = `
+  <p class="price-p">${photographer.photographer.price}€/jour</p>
+  `;
+}
+
+getLikesPrice();
