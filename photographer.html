@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -12,15 +12,15 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="fishe-eye-logo" />
     </header>
     <main id="main">
                 <div class="photograph-header">
     <div class="photograph-info">
         <h1 class="photograph-name">${photograph.name}</h1>
-        <h4 class="photograph-location">${
+        <h2 class="photograph-location">${
           photograph.city + ", " + photograph.country
-        }</h4>
+        }</h2>
         <p class="photograph-tagline">${photograph.tagline}</p>
     </div>
     <div class="photograph-contact">
@@ -51,9 +51,9 @@
     <dialog id="contact_modal">
 			<div class="modal">
 				<header>
-          <button type="button" class="close" >
-            <img src="assets/icons/close.svg" />   
-          </button>
+          <div type="button" class="close" >
+            <img src="assets/icons/close.svg" alt="close-btn-icon"/>   
+          </div>
           <h3 class="modal-name"></h3>
         </header>
         <div class="bground">

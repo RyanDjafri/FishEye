@@ -100,7 +100,9 @@ const displayMedia = async (sortBy) => {
         const picture = `assets/media/${media.image}`;
         mediaElement = `
           <div class="card-picture">
-            <img src="${picture}" alt="${picture}" class="media-picture"/>
+            <img src="${picture}" alt="${
+          "picture of " + media.title
+        }" class="media-picture"/>
           </div>
         `;
       } else if (media.video) {
@@ -209,11 +211,11 @@ async function getLikesPrice() {
     .reduce((totalLikes, likes) => totalLikes + likes, 0);
 
   likesContainer.innerHTML = `
-  <p>${likes}</p>
+  <h2 class="likes" >${likes}</h2>
   <img src="../../assets/icons/like.svg" alt="like-icon" />
   `;
   priceContainer.innerHTML = `
-  <p class="price-p">${photographer.photographer.price}€/jour</p>
+  <h2 class="price-p">${photographer.photographer.price}€/jour</h2>
   `;
 }
 

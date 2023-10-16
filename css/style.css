@@ -57,10 +57,10 @@ h1 {
     object-position: center;
 }
 
-.photographer_section article h4 {
+.photographer_section article h3 {
     color: #901C1C;
     text-align: center;
-    font-size: 13px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -69,7 +69,7 @@ h1 {
 .photographer_section article p {
     color: #000;
     text-align: center;
-    font-size: 10px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -78,7 +78,7 @@ h1 {
 .price {
     color: #757575;
     text-align: center;
-    font-size: 9px;
+    font-size: 13px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;   
