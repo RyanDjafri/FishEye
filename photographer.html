@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./css/photographer.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -52,14 +53,12 @@
     <dialog id="contact_modal">
 			<div class="modal">
 				<header>
+          <h2 class="modal-header">Contactez-moi</h2>
           <button class="close-btn" >
             <img src="assets/icons/close.svg" alt="close-btn-icon" class="close"/>   
           </button>
-          <h3 class="modal-name"></h3>
         </header>
-        <div class="bground">
-          <div class="content">
-            <span class="close-contact"></span>
+          <h3 class="modal-name"></h3>
             <div class="modal-body">
               <form
               name="reserve"
@@ -76,7 +75,6 @@
                   name="first"
                   minlength="2"
                 /><br>
-                <div id="firstNameError" class="error"></div> <!-- Error element -->
               </div>
               <div class="formData">
                 <label for="last">Nom</label><br>
@@ -86,7 +84,6 @@
                   id="last"
                   name="last"
                 /><br>
-                <div id="lastNameError" class="error"></div> <!-- Error element -->
               </div>
               <div class="formData">
                 <label for="email">E-mail</label><br>
@@ -96,13 +93,11 @@
                   id="email"
                   name="email"
                 /><br>
-                <div id="emailError" class="error"></div> <!-- Error element -->
               </div>
               <div class="formData">
                 <label for="message">Date de naissance</label><br>
                <textarea name="message" id="message" ></textarea>
                <br>
-                <div id="messageError" class="error"></div> <!-- Error element -->
               </div>
               <input
                 class="contact-button"
@@ -119,8 +114,6 @@
             <div class="success-button">
               <button class="btn-submit btn-close">Fermer</button>
             </div>
-          </div>
-        </div>
       </div>
       </dialog>
       <div class="infos-container">
