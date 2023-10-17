@@ -1,12 +1,15 @@
 dialog {
     padding: 0;
-    margin: 0;
+    margin:0;
     position: fixed;
     top: 50%;
     left: 50%; 
     transform: translate(-50%, -50%); 
     width: 669px;
     height: 900px;
+    border:none;
+    border-radius: 5px;
+background: #DB8876;
 }
 .photograph-header {
     background-color: #FAFAFA;
@@ -33,12 +36,6 @@ dialog {
     flex-shrink: 0;
     border-radius: 5px;
     background: #901C1C;
-}
-#contact-modal {
-    padding: 0;
-    margin: 0;
-    width: 669px;
-    height: 900px;
 }
 
 .modal-header, .modal-name {
@@ -69,58 +66,7 @@ width: 72px;
 height: 72px;
 background:none;
 }
-.modal header img {
-    cursor: pointer;
-    width: 72px;
-    height: 72px;
-}
 
-.modal header h2 {
-    color: #000;
-    font-family: DM Sans;
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-form {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-form label {
-    color: #312E2E;
-    font-family: DM Sans;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;;
-}
-
-form div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
-}
-
-form input {
-    display: flex;
-    width: 599px;
-    height: 68px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    border-radius: 5px;
-}
-#message {
-    width: 599px;
-    height: 170px;
-}
 
 .photograph-header {
     display:flex;
@@ -289,4 +235,62 @@ line-height: normal;
     font-weight: 500;
     line-height: normal;
 }
+.modal-header, .modal-name {
+    margin: 0;
+}
+.modal header img {
+    cursor: pointer;
+    width: 72px;
+    height: 72px;
+}
 
+.modal header h2, .modal-name {
+    margin: 0;
+    padding: 0;
+    color: #000;
+    font-family: DM Sans;
+    font-size: 40px;
+    margin-left:1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form label {
+    color: #312E2E;
+    font-family: DM Sans;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: self-start;
+    margin-bottom: 26px;
+}
+
+form input {
+    width: 599px;
+    height: 68px;
+    border-radius: 5px;
+    border:none;
+}
+#message {
+    width: 599px;
+    height: 170px;
+}
+.modal-body {
+    margin-left:1.5rem;
+
+}
