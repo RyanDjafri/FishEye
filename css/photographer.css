@@ -291,7 +291,7 @@ form input {
 }
 #message {
     width: 599px;
-    height: 120px;
+    height: 100px;
     border-radius:5px;
     resize:none;
 }
@@ -299,10 +299,11 @@ form input {
     margin-left:1.5rem;
 }
 
-.contact-button {
+.contact-button{
     width: 170px;
-    height: 59px;
+    height: 49px;
     border:none;
+    margin-top:0.5rem;
     border-radius: 5px;
     background: #901C1C;
     color: #FFF;
@@ -316,4 +317,48 @@ form input {
 
 .success {
     display:none;
+}
+.formData[data-error]::after {
+    content: attr(data-error);
+    font-size: 0.8rem;
+    color: #e54858;
+    display: block;
+    text-align: right;
+    line-height: 0.3;
+    opacity: 0;
+    transition: 0.3s;
+  }
+  .formData[data-error-visible="true"]::after {
+    opacity: 1;
+  }
+  .formData[data-error-visible="true"] .text-control {
+    border: 2px solid #e54858;
+  }
+  
+  input[data-error]::after {
+      content: attr(data-error);
+      font-size: 0.4em;
+      color: red;
+  } 
+
+  #success-message-text {
+    text-align:center;
+  }
+
+.btn-close{
+    width: 170px;
+    height: 49px;
+    border:none;
+    margin-top:0.5rem;
+    border-radius: 5px;
+    background: #901C1C;
+    color: #FFF;
+    position:absolute;
+    transform:translate(-50%);
+    left: 50%;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
