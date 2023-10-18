@@ -1,3 +1,4 @@
+
 dialog {
     padding: 0;
     margin:0;
@@ -6,10 +7,10 @@ dialog {
     left: 50%; 
     transform: translate(-50%, -50%); 
     width: 669px;
-    height: 900px;
+    height: 1000px;
     border:none;
     border-radius: 5px;
-background: #DB8876;
+    background: #DB8876;
 }
 .photograph-header {
     background-color: #FAFAFA;
@@ -157,7 +158,9 @@ line-height: normal;
     transform: scale(1.05); 
   }
   
- 
+ div.formData {
+    margin:0;
+ }
   .card-picture img {
     width: 350px;
     height: 300px;
@@ -236,7 +239,7 @@ line-height: normal;
     line-height: normal;
 }
 .modal-header, .modal-name {
-    margin: 0;
+    margin:0;
 }
 .modal header img {
     cursor: pointer;
@@ -244,7 +247,7 @@ line-height: normal;
     height: 72px;
 }
 
-.modal header h2, .modal-name {
+.modal header h2, .modal-name  {
     margin: 0;
     padding: 0;
     color: #000;
@@ -289,8 +292,27 @@ form input {
 #message {
     width: 599px;
     height: 170px;
+    border-radius:5px;
+    resize:none;
 }
 .modal-body {
     margin-left:1.5rem;
+}
 
+.contact-button {
+    width: 170px;
+    height: 69px;
+    border:none;
+    border-radius: 5px;
+    background: #901C1C;
+    color: #FFF;
+    text-align: center;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+#success-message-text {
+    margin: 0 ;
 }
