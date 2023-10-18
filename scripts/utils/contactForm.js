@@ -101,6 +101,28 @@ submitBtn.addEventListener("click", (e) => {
   checkForm(e);
 });
 
+// const displaySuccessMessage = () => {
+//   const successContainer = document.querySelector(".success");
+//   const btnClose = document.querySelector(".btn-close");
+//   const formData = document.querySelectorAll(".formData");
+//   const reserveForm = document.querySelector("form[name='reserve']");
+//   successContainer.style.display = "block";
+//   document.querySelector(".contact-button").style.display = "none";
+//   formData.forEach((form) => {
+//     form.style.display = "none";
+//   });
+//   btnClose.addEventListener("click", () => {
+//     formData.forEach((form) => {
+//       form.style.display = "block";
+//       form.value = "";
+//     });
+//     successContainer.style.display = "none";
+//     document.querySelector(".contact-button").style.display = "block";
+//     reserveForm.reset();
+//     modal.close();
+//   });
+// };
+
 const displaySuccessMessage = () => {
   const successContainer = document.querySelector(".success");
   const btnClose = document.querySelector(".btn-close");
@@ -114,7 +136,10 @@ const displaySuccessMessage = () => {
   btnClose.addEventListener("click", () => {
     formData.forEach((form) => {
       form.style.display = "block";
-      form.value = "";
+      const inputElement = form.querySelector("input, textarea");
+      if (inputElement) {
+        inputElement.value = "";
+      }
     });
     successContainer.style.display = "none";
     document.querySelector(".contact-button").style.display = "block";
