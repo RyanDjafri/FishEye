@@ -7,11 +7,12 @@ dialog {
     left: 50%; 
     transform: translate(-50%, -50%); 
     width: 669px;
-    height: 1000px;
+    height: 800px;
     border:none;
     border-radius: 5px;
     background: #DB8876;
 }
+
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
@@ -252,7 +253,7 @@ line-height: normal;
     padding: 0;
     color: #000;
     font-family: DM Sans;
-    font-size: 40px;
+    font-size:25px;
     margin-left:1.5rem;
     font-style: normal;
     font-weight: 400;
@@ -269,7 +270,7 @@ form {
 form label {
     color: #312E2E;
     font-family: DM Sans;
-    font-size: 26px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;;
@@ -280,18 +281,17 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 26px;
 }
 
 form input {
     width: 599px;
-    height: 68px;
+    height: 40px;
     border-radius: 5px;
     border:none;
 }
 #message {
     width: 599px;
-    height: 170px;
+    height: 120px;
     border-radius:5px;
     resize:none;
 }
@@ -301,7 +301,7 @@ form input {
 
 .contact-button {
     width: 170px;
-    height: 69px;
+    height: 59px;
     border:none;
     border-radius: 5px;
     background: #901C1C;
@@ -313,6 +313,7 @@ form input {
     font-weight: 600;
     line-height: normal;
 }
-#success-message-text {
-    margin: 0 ;
+
+.success {
+    display:none;
 }
