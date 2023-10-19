@@ -154,7 +154,9 @@ line-height: normal;
     background-color: #fff; 
     transition: transform 0.2s ease-in-out; 
   }
-  
+  .card-s {
+    cursor:pointer;
+  }
   .card:hover {
     transform: scale(1.05); 
   }

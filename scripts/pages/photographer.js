@@ -151,7 +151,7 @@ let imageIndex = 0;
 
 function getSource() {
   const cardsContainer = document.querySelector(".cards-container");
-  const cards = cardsContainer.querySelectorAll(".card");
+  const cards = cardsContainer.querySelectorAll(".card .card-picture");
   cards.forEach((card, index) => {
     card.addEventListener("click", () => {
       carouselModal.showModal();
