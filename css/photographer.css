@@ -172,7 +172,7 @@ line-height: normal;
     background: 50% / cover no-repeat, #C4C4C4;
   }
 
-.video {
+ .video {
     width: 350px;
     height: 300px;
     flex-shrink: 0;
@@ -195,10 +195,6 @@ line-height: normal;
     justify-content: space-between;
 }
 
-.image-opened, .video-opened{
-    width:400px;
-    height:400px;
-}
 .next, .previous, .close {
     background:none;
     border:none;
@@ -213,10 +209,11 @@ line-height: normal;
 }
 
 .image-opened {
-    width: 1050px;
-    height: 900px;
+    width: 900px;
+    height: 800px;
     border-radius: 5px;
     background: -5.597px -178.321px / 100% 155.796% no-repeat, #C4C4C4; 
+    left:50%;
 }
 
 .infos {

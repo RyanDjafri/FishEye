@@ -108,8 +108,8 @@ const displayMedia = async (sortBy) => {
       } else if (media.video) {
         const videoSource = `./assets/media/${media.video}`;
         mediaElement = `
-          <div class="card-picture">
-            <video class="video">
+          <div class="card-picture" >
+            <video class="video" alt="video">
               <source src="${videoSource}" type="video/mp4">
             </video>
           </div>
