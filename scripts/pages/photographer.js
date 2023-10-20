@@ -44,7 +44,6 @@ const getData = async () => {
 const displayPhotograph = async () => {
   const data = await getData();
   const main = document.getElementById("main");
-
   if (data) {
     const photograph = data.photographer;
     const picture = `assets/photographers/${photograph.name.replace(
@@ -77,6 +76,7 @@ document.getElementById("sortBy").addEventListener("change", function () {
 const displayMedia = async (sortBy) => {
   const cardsContainer = document.querySelector(".cards-container");
   const data = await getData();
+  const photographer = data.photographer;
   if (data) {
     const hisMedia = data.hisMedia;
     const sortingFunction = (a, b) => {
@@ -95,7 +95,7 @@ const displayMedia = async (sortBy) => {
     let rowHTML = "";
     hisMedia.forEach((media, index) => {
       let mediaElement;
-
+      const likes = media.likes;
       if (media.image) {
         const picture = `assets/media/${media.image}`;
         mediaElement = `
@@ -120,19 +120,45 @@ const displayMedia = async (sortBy) => {
           ${mediaElement}
           <div class="card-info">
             <p class="card-p">${media.title}</p>
-            <span class="card-s">${media.likes}<i class="fa-solid fa-heart"></i></span>
+            <span class="card-s">${likes}<i class="fa-solid fa-heart"></i></span>
           </div>
         </div>
       `;
-
       if ((index + 1) % 3 === 0 || index === hisMedia.length - 1) {
         cardsContainer.innerHTML += `<div class="row">${rowHTML}</div>`;
         rowHTML = "";
       }
     });
+    const hearts = document.querySelectorAll(".card-s");
+    const likesContainer = document.querySelector(".likes");
+    const totalLikes = hisMedia.reduce(
+      (total, media) => total + media.likes,
+      0
+    );
+    likesContainer.innerHTML = `
+    <h2 class="likes">${totalLikes}</h2>
+    <img src="../../assets/icons/like.svg" alt="like-icon" />
+    `;
+    Array.from(hearts).forEach((heart, index) => {
+      heart.addEventListener("click", () => {
+        let newLikes = (hisMedia[index].likes += 1);
+        heart.innerHTML = `${newLikes}<i class="fa-solid fa-heart"></i>`;
 
+        const totalLikes = hisMedia.reduce(
+          (total, media) => total + media.likes,
+          0
+        );
+        likesContainer.innerHTML = `
+        <h2 class="likes">${totalLikes}</h2>
+        <img src="../../assets/icons/like.svg" alt="like-icon" />
+        `;
+      });
+    });
+    const priceContainer = document.querySelector(".price");
+    priceContainer.innerHTML = `
+      <h2 class="price-p">${photographer.price}€/jour</h2>
+    `;
     cards = document.querySelectorAll(".card");
-
     getSource();
   }
 };
@@ -200,23 +226,3 @@ next.addEventListener("click", () => {
 close.addEventListener("click", () => {
   carouselModal.close();
 });
-
-async function getLikesPrice() {
-  const likesContainer = document.querySelector(".likes");
-  const priceContainer = document.querySelector(".price");
-  const photographer = await getData();
-  const media = photographer.hisMedia;
-  const likes = media
-    .map((media) => media.likes)
-    .reduce((totalLikes, likes) => totalLikes + likes, 0);
-
-  likesContainer.innerHTML = `
-  <h2 class="likes" >${likes}</h2>
-  <img src="../../assets/icons/like.svg" alt="like-icon" />
-  `;
-  priceContainer.innerHTML = `
-  <h2 class="price-p">${photographer.photographer.price}€/jour</h2>
-  `;
-}
-
-getLikesPrice();
