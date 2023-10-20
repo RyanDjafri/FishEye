@@ -49,6 +49,21 @@ function checkForm(e) {
   let isValid = true;
 
   resetErrorStyles();
+  firstName.addEventListener("input", () => {
+    console.log("First Name :", firstName.value);
+  });
+
+  lastName.addEventListener("input", () => {
+    console.log("Last Name :", lastName.value);
+  });
+
+  email.addEventListener("input", () => {
+    console.log("Email :", email.value);
+  });
+
+  message.addEventListener("input", () => {
+    console.log("Message :", message.value);
+  });
 
   if (
     firstName.value.trim().length < 2 ||
