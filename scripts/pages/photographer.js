@@ -140,20 +140,36 @@ const displayMedia = async (sortBy) => {
     <img src="../../assets/icons/like.svg" alt="like-icon" />
     `;
     Array.from(hearts).forEach((heart, index) => {
-      heart.addEventListener("click", () => {
-        let newLikes = (hisMedia[index].likes += 1);
-        heart.innerHTML = `${newLikes}<i class="fa-solid fa-heart"></i>`;
+      let isLiked = false;
 
-        const totalLikes = hisMedia.reduce(
+      heart.addEventListener("click", () => {
+        if (isLiked) {
+          // If already liked, decrease the likes
+          let newLikes = (hisMedia[index].likes -= 1);
+          heart.innerHTML = `${newLikes}<i class="fa-solid fa-heart"></i>`;
+          isLiked = false;
+        } else {
+          // If not liked, increase the likes
+          let newLikes = (hisMedia[index].likes += 1);
+          heart.innerHTML = `${newLikes}<i class="fa-solid fa-heart"></i>`;
+          isLiked = true;
+        }
+
+        // Calculate the total likes for all media
+        let totalLikes = hisMedia.reduce(
           (total, media) => total + media.likes,
           0
         );
+        const likesContainer = document.querySelector(".likes");
+
+        // Update the total likes display
         likesContainer.innerHTML = `
-        <h2 class="likes">${totalLikes}</h2>
-        <img src="../../assets/icons/like.svg" alt="like-icon" />
+          <h2 class="likes">${totalLikes}</h2>
+          <img src="../../assets/icons/like.svg" alt="like-icon" />
         `;
       });
     });
+
     const priceContainer = document.querySelector(".price");
     priceContainer.innerHTML = `
       <h2 class="price-p">${photographer.price}€/jour</h2>
