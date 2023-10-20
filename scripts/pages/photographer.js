@@ -236,3 +236,13 @@ next.addEventListener("click", () => {
 close.addEventListener("click", () => {
   carouselModal.close();
 });
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "ArrowLeft") {
+    // Left arrow key pressed, trigger "previous" button click
+    prev.click();
+  } else if (event.key === "ArrowRight") {
+    // Right arrow key pressed, trigger "next" button click
+    next.click();
+  }
+});
