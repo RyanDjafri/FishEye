@@ -169,7 +169,7 @@ line-height: normal;
     height: 300px;
     flex-shrink: 0;
     border-radius:5px;
-    background: lightgray 50% / cover no-repeat, #C4C4C4;
+    background: 50% / cover no-repeat, #C4C4C4;
   }
 
 .video {
@@ -177,7 +177,7 @@ line-height: normal;
     height: 300px;
     flex-shrink: 0;
     border-radius:5px;
-    background: lightgray 50% / cover no-repeat, #C4C4C4;
+    background: 50% / cover no-repeat, #C4C4C4;
 }
   .card-p, .card-s {
     color: #901C1C;
@@ -216,7 +216,7 @@ line-height: normal;
     width: 1050px;
     height: 900px;
     border-radius: 5px;
-    background: lightgray -5.597px -178.321px / 100% 155.796% no-repeat, #C4C4C4; 
+    background: -5.597px -178.321px / 100% 155.796% no-repeat, #C4C4C4; 
 }
 
 .infos {
