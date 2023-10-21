@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="./css/photographer.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script type="module"  src="./scripts/pages/photographer.js"></script>
     <script type="module"  src="./scripts/utils/contactForm.js"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/photographer.css" rel="stylesheet" type="text/css">
     <title>Fisheye - photographe </title>
   </head>
   <body>
@@ -44,13 +44,21 @@
     <section class="cards-container">
     </section>
 <dialog class="carousel">
-    <button class="next"><img src="./assets/icons/left.svg" alt="left-icon"></button>
-    <img class="image-opened" src="" alt="image-opened" >
-    <video class="video-opened" src="" ></video>
-    <button class="previous"><img src="./assets/icons/right.svg" alt="right-icon"></button>
-    <button class="close"><img src="./assets/icons/close-24px1.svg" alt="close-icon"></button>
+  <div class="carousel-content">
+    <div class="left-side">
+      <button class="previous"><img src="./assets/icons/left.svg" alt="right-icon"></button>
+    </div>
+    <div class="middle-side">
+      <img class="image-opened" src="" alt="image-opened" >
+      <video class="video-opened" src="" alt="video-opened"></video>
+    </div>
+    <div class="right-side">
+      <button class="close"><img src="./assets/icons/close-24px1.svg" alt="close-icon"></button>
+      <button class="next"><img src="./assets/icons/right.svg" alt="left-icon"></button>
+    </div>
+  </div>
 </dialog>
-    <dialog id="contact_modal">
+    <dialog class="contact_modal">
 			<div class="modal">
 				<header>
           <h2 class="modal-header">Contactez-moi</h2>
