@@ -109,7 +109,7 @@ const displayMedia = async (sortBy) => {
         const videoSource = `./assets/media/${media.video}`;
         mediaElement = `
           <div class="card-picture" >
-            <video class="video" alt="video">
+            <video class="video" alt="video" >
               <source src="${videoSource}" type="video/mp4">
             </video>
           </div>
@@ -208,6 +208,8 @@ const updateMedia = (cards) => {
     video.style.display = "none";
   } else if (cardVideo) {
     video.src = cardVideo.src;
+    video.width = "850px";
+    video.height = "650px";
     video.load();
     video.play();
     img.style.display = "none";
