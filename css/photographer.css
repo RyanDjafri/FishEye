@@ -236,6 +236,7 @@ line-height: normal;
     flex-shrink: 0;
     border-radius:5px;
     background: 50% / cover no-repeat, #C4C4C4;
+    object-fit:cover;
   }
 
  .video {
@@ -244,6 +245,7 @@ line-height: normal;
     flex-shrink: 0;
     border-radius:5px;
     background: 50% / cover no-repeat, #C4C4C4;
+    object-fit: cover;
 }
 
   .card-p, .card-s {
@@ -360,7 +362,7 @@ form input {
     font-weight: 600;
     line-height: normal;
 }
-.contact_button:hover {
+.contact_button:hover, .contact_button:focus {
     background: #DB8876;
     color: #000;
 }
