@@ -66,7 +66,7 @@ dialog.carousel {
     height: 650px;
     border-radius: 5px;
     background: -5.597px -178.321px / 100% 155.796% no-repeat, #C4C4C4; 
-
+    object-fit: cover;
 }
 
 .video-opened {
@@ -76,7 +76,7 @@ dialog.carousel {
     height: 650px;
     border-radius: 5px;
     background: -5.597px -178.321px / 100% 155.796% no-repeat, #C4C4C4; 
-
+    object-fit: cover;
 }
 .photograph-header {
     background-color: #FAFAFA;
@@ -170,6 +170,7 @@ background:none;
     height: 200px;
     width: 200px;
     border-radius:100%;
+    object-fit: cover;
 }
 
 .filters {
@@ -413,3 +414,5 @@ form input {
     font-weight: 600;
     line-height: normal;
 }
+
+
