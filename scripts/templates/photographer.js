@@ -29,5 +29,5 @@ export function photographerTemplate(data) {
     return article;
   }
 
-  return { name, picture, getUserCardDOM, city, country, tagline, price };
+  return { getUserCardDOM };
 }
