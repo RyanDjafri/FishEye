@@ -31,14 +31,21 @@
     </div>
       </div>
     </main>
+   
     <section class="filters">
-      <label for="sortBy" class="filter">Trier par</label>
-    <select id="sortBy">
-        <option value="popularite">Popularite</option>
-        <option value="date">Date</option>
-        <option value="titre">Titre</option>
-    </select>
+      <div class="filter">
+          <div class="filter-title">Trier par</div>
+        </div>
+        <div class="custom-select">
+          <div class="options">
+            <div class="option selected" data-value="popularite">Popularite</div>
+            <div class="option" data-value="date">Date</div>
+            <div class="option" data-value="titre">Titre</div>
+            <div class="arrow"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+        </div>
     </section>
+
     <section class="cards-container">
     </section>
 <dialog class="carousel">

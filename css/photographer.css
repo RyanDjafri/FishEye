@@ -188,6 +188,8 @@ background:none;
 
 .filters {
     margin: 20px 100px;
+    display:flex;
+    gap:1rem;
 }
 
 .filter {
@@ -197,28 +199,48 @@ font-size: 18px;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
+display:flex;
+justify-content: space-between;
+align-items:center;
 }
 
-#sortBy{
+.custom-select {
+    position: relative;
+    display: inline-block;
+    width: 170px;
+    height: 69px;
+    cursor: pointer;
     border-radius: 5px;
     background: #901C1C;
-    height:57px;
-    width:170px;
-    color: #FFF;
-    font-family: DM Sans;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
 }
 
-#sortBy option[value="date"] {
-    border-radius: 5px;
-    border-bottom:1px solid #fff;
-    background: #901C1C;
-    color: #FFF;
-    font-family: DM Sans;
-    font-size: 18px;
+.custom-select .filter {
+    padding: 10px;
+}
+
+.custom-select .options {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.custom-select .option {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.custom-select .option:hover {
+    background-color: #f0f0f0;
+}
+
+.custom-select.open .options {
+    display: block;
 }
 .row {
     display: flex;

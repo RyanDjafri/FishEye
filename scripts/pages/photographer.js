@@ -66,11 +66,37 @@ const displayPhotograph = async () => {
   }
 };
 
-document.getElementById("sortBy").addEventListener("change", function () {
-  const selectedValue = this.value;
-  const cardsContainer = document.querySelector(".cards-container");
-  cardsContainer.innerHTML = "";
-  displayMedia(selectedValue);
+document.querySelector(".custom-select").addEventListener("click", function () {
+  const selectedOption = document.querySelector(
+    ".custom-select .option.selected"
+  );
+  if (selectedOption) {
+    const selectedValue = selectedOption.getAttribute("data-value");
+    const cardsContainer = document.querySelector(".cards-container");
+    cardsContainer.innerHTML = "";
+    displayMedia(selectedValue);
+  }
+});
+
+const customSelect = document.querySelector(".custom-select");
+const optionElements = document.querySelectorAll(".custom-select .option");
+
+optionElements[0].classList.add("selected");
+
+customSelect.addEventListener("click", function () {
+  customSelect.classList.toggle("open");
+});
+
+optionElements.forEach((option) => {
+  option.addEventListener("click", function () {
+    if (!this.classList.contains("disabled")) {
+      const selectedValue = this.getAttribute("data-value");
+      customSelect.classList.remove("open");
+      const cardsContainer = document.querySelector(".cards-container");
+      cardsContainer.innerHTML = "";
+      displayMedia(selectedValue);
+    }
+  });
 });
 
 const displayMedia = async (sortBy) => {
