@@ -190,10 +190,12 @@ background:none;
     margin: 20px 100px;
     display:flex;
     gap:1rem;
+    border:none;
 }
 
 .filter {
 color: #000;
+border:none;
 font-family: DM Sans;
 font-size: 18px;
 font-style: normal;
@@ -227,12 +229,36 @@ align-items:center;
     left: 0;
     right: 0;
     z-index: 1;
+    width: 170px;
+    height: 69px;
+    cursor: pointer;
+    background: #901C1C;
+}
+.selected-value {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    font-family: DM Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .custom-select .option {
-    padding: 10px;
     cursor: pointer;
     transition: background-color 0.2s;
+    width: 170px;
+    height: 69px;
+    cursor: pointer;        
+    background: #901C1C;
+    color: #FFF;
+    font-family: DM Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;    
 }
 
 .custom-select .option:hover {
@@ -242,6 +268,13 @@ align-items:center;
 .custom-select.open .options {
     display: block;
 }
+.custom-select .options .bar {
+    width: 20px; 
+    height: 10px; 
+    background: #fff; 
+    margin: 0 auto; 
+}
+
 .row {
     display: flex;
     justify-content: space-between;

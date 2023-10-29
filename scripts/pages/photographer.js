@@ -66,26 +66,23 @@ const displayPhotograph = async () => {
   }
 };
 
-document.querySelector(".custom-select").addEventListener("click", function () {
-  const selectedOption = document.querySelector(
-    ".custom-select .option.selected"
-  );
-  if (selectedOption) {
-    const selectedValue = selectedOption.getAttribute("data-value");
-    const cardsContainer = document.querySelector(".cards-container");
-    cardsContainer.innerHTML = "";
-    displayMedia(selectedValue);
+const customSelect = document.querySelector(".custom-select");
+const optionElements = document.querySelectorAll(".custom-select .option");
+const selectedValueElement = document.querySelector(
+  ".custom-select .selected-value"
+);
+
+// Add click event listener to the custom-select
+customSelect.addEventListener("click", function () {
+  customSelect.classList.toggle("open");
+
+  // If options are closed, display "Popularite"
+  if (!customSelect.classList.contains("open")) {
+    selectedValueElement.textContent = "Popularite";
   }
 });
 
-const customSelect = document.querySelector(".custom-select");
-const optionElements = document.querySelectorAll(".custom-select .option");
-
 optionElements[0].classList.add("selected");
-
-customSelect.addEventListener("click", function () {
-  customSelect.classList.toggle("open");
-});
 
 optionElements.forEach((option) => {
   option.addEventListener("click", function () {
@@ -95,6 +92,9 @@ optionElements.forEach((option) => {
       const cardsContainer = document.querySelector(".cards-container");
       cardsContainer.innerHTML = "";
       displayMedia(selectedValue);
+
+      // Update the selected value display element
+      selectedValueElement.textContent = this.textContent;
     }
   });
 });
