@@ -195,7 +195,7 @@ color: #000;
 font-family: DM Sans;
 font-size: 18px;
 font-style: normal;
-font-weight: 700;
+font-weight: 600;
 line-height: normal;
 }
 
@@ -208,11 +208,17 @@ line-height: normal;
     font-family: DM Sans;
     font-size: 18px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     line-height: normal;
 }
-#sortBy option {
-    height:69px;
+
+#sortBy option[value="date"] {
+    border-radius: 5px;
+    border-bottom:1px solid #fff;
+    background: #901C1C;
+    color: #FFF;
+    font-family: DM Sans;
+    font-size: 18px;
 }
 .row {
     display: flex;

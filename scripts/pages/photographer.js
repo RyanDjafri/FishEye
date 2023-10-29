@@ -210,6 +210,7 @@ const updateMedia = (cards) => {
     video.src = cardVideo.src;
     video.width = "850px";
     video.height = "650px";
+    video.controls = true;
     video.load();
     video.play();
     img.style.display = "none";
