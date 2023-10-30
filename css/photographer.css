@@ -215,6 +215,7 @@ background:none;
     background: #901C1C;
     border-radius: 5px;
     border:none;
+
 }
 .custom-select.open {
     border-radius: 5px 5px 0 0;
@@ -237,19 +238,6 @@ background:none;
     background: #901C1C;
 }
 
-.selected-class {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFF;
-    font-family: DM Sans;
-    font-size: 18px;
-    gap: 0.5rem;
-    margin-top: 1.3rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
 
 .custom-select .option {
     cursor: pointer;
@@ -264,7 +252,23 @@ background:none;
     font-weight: 500;
     line-height: normal;
     margin: 0;
+    text-align: center;
+    line-height: 69px; 
 }
+.selected-class {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    font-family: DM Sans;
+    font-size: 18px;
+    gap: 0.5rem;
+    margin-top: 1.3rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
 .custom-select.open .options {
     display: block;
 }
