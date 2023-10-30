@@ -1,14 +1,14 @@
 import { fetchData } from "../api/index.js";
-
+// j'importe ma fonction fetch
 let cards = [];
-
+// logo/link pour redirect vers la page d'accueil
 const DOM = () => {
   const logo = document.querySelector(".logo");
   logo.addEventListener("click", () => {
     window.location.href = "/index.html";
   });
 };
-
+// je récupère ma data avec la fonction importer plus haut
 const getData = async () => {
   let currentURL = window.location.href;
   let url = new URL(currentURL);
@@ -40,7 +40,7 @@ const getData = async () => {
     return null;
   }
 };
-
+// je display ma data de manière dynamique en fonction du photograph voulu retenu grace à son id dans le lien
 const displayPhotograph = async () => {
   const data = await getData();
   const main = document.getElementById("main");
@@ -65,7 +65,7 @@ const displayPhotograph = async () => {
     modalElement.textContent = photograph.name;
   }
 };
-
+// je gere mes filtres en fonction des options proposées popularite, date, titre
 const customSelect = document.querySelector(".custom-select");
 const optionElements = document.querySelectorAll(".custom-select .option");
 const selectedValueElement = document.querySelector(".selected-value");
@@ -91,7 +91,7 @@ optionElements.forEach((option) => {
     }
   });
 });
-
+// j'affiche tous mes medias en fonction du photograph voulu, je trie, je gere mes likes (total, par media)
 const displayMedia = async (sortBy) => {
   const cardsContainer = document.querySelector(".cards-container");
   const data = await getData();
@@ -195,7 +195,7 @@ const displayMedia = async (sortBy) => {
 DOM();
 displayMedia("popularite");
 displayPhotograph();
-
+// j'importe mes constantes pour le carousel,
 const carouselModal = document.querySelector(".carousel");
 const img = carouselModal.querySelector(".image-opened");
 const video = carouselModal.querySelector("video");
@@ -203,7 +203,7 @@ const prev = document.querySelector(".previous");
 const next = document.querySelector(".next");
 const close = document.querySelector(".close");
 let imageIndex = 0;
-
+// je récupere la source de la photo sur laquelle j'ai cliqué
 function getSource() {
   const cardsContainer = document.querySelector(".cards-container");
   const cards = cardsContainer.querySelectorAll(".card .card-picture");
@@ -236,7 +236,7 @@ const updateMedia = (cards) => {
     video.style.display = "inline";
   }
 };
-
+// flèche pour naviguer dans mes médias
 prev.addEventListener("click", () => {
   if (imageIndex > 0) {
     imageIndex--;
@@ -261,10 +261,8 @@ close.addEventListener("click", () => {
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "ArrowLeft") {
-    // Left arrow key pressed, trigger "previous" button click
     prev.click();
   } else if (event.key === "ArrowRight") {
-    // Right arrow key pressed, trigger "next" button click
     next.click();
   }
 });

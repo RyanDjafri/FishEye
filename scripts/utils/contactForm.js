@@ -1,6 +1,8 @@
+// j'importe mes constantes qui me serviront pour le formulaire
 const btn = document.querySelector(".contact_button");
 const modal = document.querySelector(".contact_modal");
 const close = document.querySelector(".close-btn");
+// events gérant l'ouverture fermeture du formualaire
 btn.addEventListener("click", () => {
   modal.showModal();
 });
@@ -8,7 +10,7 @@ btn.addEventListener("click", () => {
 close.addEventListener("click", () => {
   modal.close();
 });
-
+//////////////////////////////////////////////////
 function displayError(inputId, errorMessage) {
   const inputElement = document.getElementById(inputId);
   inputElement.parentElement.setAttribute("data-error", errorMessage);
@@ -39,9 +41,7 @@ function resetErrorStyles() {
 }
 
 // fonction verifiant tous les parametres des inputs
-function checkForm(e) {
-  e.preventDefault();
-
+function checkForm() {
   const firstName = document.getElementById("first");
   const lastName = document.getElementById("last");
   const email = document.getElementById("email");
@@ -110,12 +110,13 @@ function checkForm(e) {
     displaySuccessMessage();
   }
 }
+// event sur mon button submit pour valider ou non le formulaire
 const submitBtn = document.querySelector(".contact-button");
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  checkForm(e);
+  checkForm();
 });
-
+// fonction permettant d'afficher le message de success
 const displaySuccessMessage = () => {
   const successContainer = document.querySelector(".success");
   const btnClose = document.querySelector(".btn-close");

@@ -1,3 +1,5 @@
+// template pour la page principale récupérant la data puis à l'aide d'une template permet de l'afficher de la manière voulue
+
 export function photographerTemplate(data) {
   const { id, name, portrait, city, country, tagline, price } = data;
 

@@ -11,3 +11,4 @@ export const fetchData = async () => {
     throw error;
   }
 };
+// je fetch ma data avec la methode js fetch puis je la transform en json pour pouvoir l'utiliser a travers mon code et je l'exporte
