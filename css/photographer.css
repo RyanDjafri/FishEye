@@ -212,8 +212,8 @@ align-items:center;
     width: 170px;
     height: 69px;
     cursor: pointer;
-    border-radius: 5px;
     background: #901C1C;
+    border-radius: 5px;
 }
 
 .custom-select .filter {
@@ -234,13 +234,15 @@ align-items:center;
     cursor: pointer;
     background: #901C1C;
 }
-.selected-value {
+.selected-class{
     display:flex;
     justify-content: center;
     align-items: center;
     color: #FFF;
     font-family: DM Sans;
     font-size: 18px;
+    gap : 0.5rem;
+    margin-top:1.3rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -248,7 +250,6 @@ align-items:center;
 
 .custom-select .option {
     cursor: pointer;
-    transition: background-color 0.2s;
     width: 170px;
     height: 69px;
     cursor: pointer;        
@@ -261,18 +262,27 @@ align-items:center;
     line-height: normal;    
 }
 
-.custom-select .option:hover {
-    background-color: #f0f0f0;
-}
-
 .custom-select.open .options {
     display: block;
 }
-.custom-select .options .bar {
-    width: 20px; 
-    height: 10px; 
-    background: #fff; 
-    margin: 0 auto; 
+
+.option[data-value="titre"] {
+   border-radius : 0 0 5px 5px;
+}
+.custom-select .options .option[data-selected="true"] {
+    display: none; 
+}
+.custom-select .arrow i {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.custom-select.open .arrow i {
+    transform: rotate(180deg);
+}
+
+.custom-select .option.selected {
+    display: none;
 }
 
 .row {
@@ -281,7 +291,6 @@ align-items:center;
     align-items:center;
     margin: 20px 100px; 
   }
-  
   
   .card {
     flex-basis: calc(33.33% - 10px); 

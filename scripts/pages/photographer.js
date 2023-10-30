@@ -68,33 +68,26 @@ const displayPhotograph = async () => {
 
 const customSelect = document.querySelector(".custom-select");
 const optionElements = document.querySelectorAll(".custom-select .option");
-const selectedValueElement = document.querySelector(
-  ".custom-select .selected-value"
-);
+const selectedValueElement = document.querySelector(".selected-value");
 
-// Add click event listener to the custom-select
+let selectedOption = optionElements[0];
+
 customSelect.addEventListener("click", function () {
   customSelect.classList.toggle("open");
-
-  // If options are closed, display "Popularite"
-  if (!customSelect.classList.contains("open")) {
-    selectedValueElement.textContent = "Popularite";
-  }
 });
-
-optionElements[0].classList.add("selected");
 
 optionElements.forEach((option) => {
   option.addEventListener("click", function () {
     if (!this.classList.contains("disabled")) {
-      const selectedValue = this.getAttribute("data-value");
+      selectedOption.style.display = "block";
+      this.style.display = "none";
+      selectedValueElement.textContent = this.textContent;
+      selectedOption = this;
       customSelect.classList.remove("open");
+      const selectedValue = this.getAttribute("data-value");
       const cardsContainer = document.querySelector(".cards-container");
       cardsContainer.innerHTML = "";
       displayMedia(selectedValue);
-
-      // Update the selected value display element
-      selectedValueElement.textContent = this.textContent;
     }
   });
 });
