@@ -1,7 +1,7 @@
 {
   "name": "fisheye-test",
   "version": "1.0.0",
-  "type":"module",
+  "type": "module",
   "description": "FishEye",
   "main": "index.js",
   "scripts": {
@@ -9,5 +9,16 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanDjafri/FishEye-test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RyanDjafri/FishEye-test/issues"
+  },
+  "homepage": "https://github.com/RyanDjafri/FishEye-test#readme",
+  "devDependencies": {
+    "eslint": "^8.52.0"
+  }
 }
